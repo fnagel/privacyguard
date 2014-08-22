@@ -1,7 +1,19 @@
 <?php
 
+/**
+ * Class tx_privacyguard_cleaner_addFields
+ */
 class tx_privacyguard_cleaner_addFields implements tx_scheduler_AdditionalFieldProvider {
 
+	/**
+	 * Gets additional fields to render in the form to add/edit a task
+	 *
+	 * @param array $taskInfo Values of the fields from the add/edit task form
+	 * @param \TYPO3\CMS\Scheduler\Task\AbstractTask $task The task object being edited. Null when adding a task!
+	 * @param tx_scheduler_Module|\TYPO3\CMS\Scheduler\Controller\SchedulerModuleController $schedulerModule Reference to the scheduler backend module
+	 *
+	 * @return array A two dimensional array, array('Identifier' => array('fieldId' => array('code' => '', 'label' => '', 'cshKey' => '', 'cshLabel' => ''))
+	 */
 	public function getAdditionalFields(array &$taskInfo, $task, tx_scheduler_Module $schedulerModule) {
 
 		// process fields
@@ -95,8 +107,12 @@ class tx_privacyguard_cleaner_addFields implements tx_scheduler_AdditionalFieldP
 		return $additionalFields;
 	}
 
+	/**
+	 * @todo add a hook here
+	 *
+	 * @return array
+	 */
 	public function getExtensions() {
-		// TODO add a hook for adding extensions
 		return array(
 			'comments' => 'Commenting system (EXT:comments) ' . $GLOBALS['LANG']->sL('LLL:EXT:privacyguard/lang/locallang.xml:addfields_notice_alpha'),
 			'formhandler' => 'Formhandler (EXT:formhandler)',
@@ -108,8 +124,12 @@ class tx_privacyguard_cleaner_addFields implements tx_scheduler_AdditionalFieldP
 		);
 	}
 
+	/**
+	 * @todo add a hook here
+	 *
+	 * @return array
+	 */
 	public function getTimes() {
-		// TODO add a hook for adding times
 		return array(
 			'0' => $GLOBALS['LANG']->sL('LLL:EXT:privacyguard/lang/locallang.xml:addfields_time_all'),
 			'24h' => '24 ' . $GLOBALS['LANG']->sL('LLL:EXT:privacyguard/lang/locallang.xml:addfields_time_h'),
@@ -124,8 +144,12 @@ class tx_privacyguard_cleaner_addFields implements tx_scheduler_AdditionalFieldP
 		);
 	}
 
+	/**
+	 * @todo add a hook here
+	 *
+	 * @return array
+	 */
 	public function getMethods() {
-		// TODO add a hook for adding times
 		return array(
 			'delete_ip' => $GLOBALS['LANG']->sL('LLL:EXT:privacyguard/lang/locallang.xml:addfields_method_delete_ip'),
 			// 'anonymize_ip' => $GLOBALS['LANG']->sL('LLL:EXT:privacyguard/lang/locallang.xml:addfields_method_anonymize_ip'),
@@ -136,9 +160,10 @@ class tx_privacyguard_cleaner_addFields implements tx_scheduler_AdditionalFieldP
 	/**
 	 * Validates the additional fields' values
 	 *
-	 * @param    array $submittedData An array containing the data submitted by the add/edit task form
-	 * @param    tx_scheduler_Module $schedulerModule Reference to the scheduler backend module
-	 * @return    boolean    True if validation was ok (or selected class is not relevant), false otherwise
+	 * @param array $submittedData An array containing the data submitted by the add/edit task form
+	 * @param tx_scheduler_Module|\TYPO3\CMS\Scheduler\Controller\SchedulerModuleController $schedulerModule Reference to the scheduler backend module
+	 *
+	 * @return boolean TRUE if validation was ok (or selected class is not relevant), FALSE otherwise
 	 */
 	public function validateAdditionalFields(array &$submittedData, tx_scheduler_Module $schedulerModule) {
 		$validInput = TRUE;
@@ -146,7 +171,6 @@ class tx_privacyguard_cleaner_addFields implements tx_scheduler_AdditionalFieldP
 		// clean data
 		$submittedData['privacyguard_extkey'] = trim($submittedData['privacyguard_extkey']);
 		$submittedData['privacyguard_time'] = trim($submittedData['privacyguard_time']);
-		$submittedData['privacyguard_method'] = $submittedData['privacyguard_method'];
 
 
 		switch ($submittedData['privacyguard_extkey']) {
@@ -168,6 +192,14 @@ class tx_privacyguard_cleaner_addFields implements tx_scheduler_AdditionalFieldP
 	}
 
 
+	/**
+	 * Takes care of saving the additional fields' values in the task's object
+	 *
+	 * @param array $submittedData An array containing the data submitted by the add/edit task form
+	 * @param tx_scheduler_Task|\TYPO3\CMS\Scheduler\Task\AbstractTask $task Reference to the scheduler backend module
+	 *
+	 * @return void
+	 */
 	public function saveAdditionalFields(array $submittedData, tx_scheduler_Task $task) {
 		$task->privacyguard_extkey = $submittedData['privacyguard_extkey'];
 		$task->privacyguard_time = $submittedData['privacyguard_time'];
