@@ -35,14 +35,11 @@ $EM_CONF[$_EXTKEY] = array(
 			'scheduler' => '',
 			'typo3' => '4.3.0-4.7.99',
 		),
-		'conflicts' => array(
-		),
-		'suggests' => array(
-		),
+		'conflicts' => array(),
+		'suggests' => array(),
 	),
 	'_md5_values_when_last_written' => 'a:8:{s:9:"ChangeLog";s:4:"904d";s:16:"ext_autoload.php";s:4:"5bd6";s:12:"ext_icon.gif";s:4:"45cd";s:17:"ext_localconf.php";s:4:"499d";s:14:"doc/manual.sxw";s:4:"0ae3";s:18:"lang/locallang.xml";s:4:"1846";s:39:"tasks/class.tx_privacyguard_cleaner.php";s:4:"fae3";s:49:"tasks/class.tx_privacyguard_cleaner_addFields.php";s:4:"5372";}',
-	'suggests' => array(
-	),
+	'suggests' => array(),
 );
 
 ?>
