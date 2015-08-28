@@ -7,9 +7,7 @@
     <data type="array">
         <languageKey index="default" type="array">
             <label index="localconf_title">Privacy Guard</label>
-            <label index="localconf_description">This task cleans your TYPO3 installation to improve the privacy of your
-                customers.
-            </label>
+            <label index="localconf_description">This task cleans your TYPO3 installation to improve the privacy of your customers.</label>
 
             <label index="addfields_label_extension">Choosen extension:</label>
             <label index="addfields_label_time">Period to delete:</label>
@@ -24,14 +22,11 @@
             <label index="addfields_method_anonymize_ip">Anonymize IP</label>
             <label index="addfields_method_delete_all">Delete whole entry</label>
 
-            <label index="addfields_notice_alpha">[Alpha - be careful!]</label>
             <label index="addfields_notice_ext_not_installed">Please make sure extension '%s' is installed.</label>
         </languageKey>
         <languageKey index="de" type="array">
             <label index="localconf_title">Privatsphäre Schutz</label>
-            <label index="localconf_description">Säubert regelmäßig Ihre TYPO3 Installation um Datenschutz und
-                Privatsphäre Ihrer Kunden zu verbessern.
-            </label>
+            <label index="localconf_description">Säubert regelmäßig Ihre TYPO3 Installation um Datenschutz und Privatsphäre Ihrer Kunden zu verbessern.</label>
 
             <label index="addfields_label_extension">Ausgewählte Extension:</label>
             <label index="addfields_label_time">Zu löschender Zeitraum:</label>
@@ -46,10 +41,7 @@
             <label index="addfields_method_anonymize_ip">IP anonymisieren</label>
             <label index="addfields_method_delete_all">Datensatz löschen</label>
 
-            <label index="addfields_notice_alpha">[Alpha - Vorsicht!]</label>
-            <label index="addfields_notice_ext_not_installed">Bitte stellen Sie sicher das Extension '%s' installiert
-                wurde.
-            </label>
+            <label index="addfields_notice_ext_not_installed">Bitte stellen Sie sicher das Extension '%s' installiert wurde.</label>
         </languageKey>
     </data>
 </T3locallang>

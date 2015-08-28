@@ -129,11 +129,11 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
 	 */
 	public function getExtensions() {
 		return array(
-			'comments' => 'Commenting system (EXT:comments) ' . $this->translate('addfields_notice_alpha'),
+			'comments' => 'Commenting system (EXT:comments)',
 			'formhandler' => 'Formhandler (EXT:formhandler)',
 			'px_phpids' => 'PHPIDS (EXT:px_phpids)',
 			'sfpantispam' => 'Anti Spam (EXT:sfpantispam)',
-			've_guestbook' => 'Modern Guestbook (EXT:ve_guestbook) ' . $this->translate('addfields_notice_alpha'),
+			've_guestbook' => 'Modern Guestbook (EXT:ve_guestbook)',
 			'sys_log' => 'TYPO3 sys log',
 			'spamshield' => 'spamshield (EXT:spamshield)',
 		);
