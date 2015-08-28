@@ -13,3 +13,14 @@ Feel free to add bug reports via GitHub issues or send PRs.
 
 * Forge:		http://forge.typo3.org/projects/extension-privacyguard
 * TER:		http://typo3.org/extensions/repository/view/privacyguard
+
+
+## ToDo
+
+* Split into several tasks
+* Test in TYPO3 7.4
+* Test in TYPO3 6.2
+* Migrate docs to ReSt
+* Upgrade guide 
+	* Clear cache in Install Tool
+	* Re-add all tasks!

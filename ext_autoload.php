@@ -1,6 +1,12 @@
 <?php
+
 return array(
-	'tx_privacyguard_cleaner' => t3lib_extMgm::extPath('privacyguard', 'tasks/class.tx_privacyguard_cleaner.php'),
-	'tx_privacyguard_cleaner_addfields' => t3lib_extMgm::extPath('privacyguard', 'tasks/class.tx_privacyguard_cleaner_addFields.php'),
+	'TYPO3\\PrivacyGuard\\Task\\PrivacyGuardTask' =>
+		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath(
+			'privacyguard', 'Classes/Task/PrivacyGuardTask.php'
+		),
+	'TYPO3\\PrivacyGuard\\Task\\PrivacyGuardAdditionalFieldProvider' =>
+		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath(
+			'privacyguard', 'Classes/Task/PrivacyGuardAdditionalFieldProvider.php'
+		),
 );
-?>
