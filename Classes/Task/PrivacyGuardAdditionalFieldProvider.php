@@ -195,7 +195,7 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
 			default:
 				if (!ExtensionManagementUtility::isLoaded($submittedData['privacyguard_extkey'])) {
 					$schedulerModule->addMessage(
-						sprintf($this->translate('addfields_notice_ext_not_installed')),
+						sprintf($this->translate('addfields_notice_ext_not_installed'), $submittedData['privacyguard_extkey']),
 						FlashMessage::ERROR
 					);
 					$validInput = FALSE;
