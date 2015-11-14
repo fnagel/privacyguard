@@ -70,9 +70,9 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
 		// render extkey field
 		$fieldId = 'task_privacyguard_extkey';
 		$fieldCode = '<select name="tx_scheduler[privacyguard_extkey]" id="' . $fieldId . '">';
-		foreach ($this->getExtensions() as $privacyguard_extkey => $label) {
-			$fieldCode .= "\t" . '<option value="' . htmlspecialchars($privacyguard_extkey) . '"' .
-				(($privacyguard_extkey == $taskInfo['privacyguard_extkey']) ? ' selected="selected"' : '') .
+		foreach ($this->getExtensions() as $privacyguardExtkey => $label) {
+			$fieldCode .= "\t" . '<option value="' . htmlspecialchars($privacyguardExtkey) . '"' .
+				(($privacyguardExtkey == $taskInfo['privacyguard_extkey']) ? ' selected="selected"' : '') .
 				'>' . $label . '</option>';
 		}
 		$fieldCode .= '</select>';
@@ -87,9 +87,9 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
 		// render time field
 		$fieldId = 'task_privacyguard_time';
 		$fieldCode = '<select name="tx_scheduler[privacyguard_time]" id="' . $fieldId . '">';
-		foreach ($this->getTimes() as $privacyguard_time => $label) {
-			$fieldCode .= "\t" . '<option value="' . htmlspecialchars($privacyguard_time) . '"' .
-				(($privacyguard_time == $taskInfo['privacyguard_time']) ? ' selected="selected"' : '') .
+		foreach ($this->getTimes() as $privacyguardTime => $label) {
+			$fieldCode .= "\t" . '<option value="' . htmlspecialchars($privacyguardTime) . '"' .
+				(($privacyguardTime == $taskInfo['privacyguard_time']) ? ' selected="selected"' : '') .
 				'>' . $label . '</option>';
 		}
 		$fieldCode .= '</select>';
@@ -104,10 +104,10 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
 		// render method field
 		$fieldId = 'task_privacyguard_method';
 		$fieldCode = '<select name="tx_scheduler[privacyguard_method]" id="' . $fieldId . '">';
-		foreach ($this->getMethods() as $privacyguard_method => $label) {
+		foreach ($this->getMethods() as $privacyguardMethod => $label) {
 			$fieldCode .= "\t" . '<option value="' .
-				htmlspecialchars($privacyguard_method) . '"' .
-				(($privacyguard_method == $taskInfo['privacyguard_method']) ? ' selected="selected"' : '') .
+				htmlspecialchars($privacyguardMethod) . '"' .
+				(($privacyguardMethod == $taskInfo['privacyguard_method']) ? ' selected="selected"' : '') .
 				'>' . $label . '</option>';
 		}
 		$fieldCode .= '</select>';
