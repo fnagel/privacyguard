@@ -5,19 +5,23 @@ Currently works with comments, formhandler, px_phpids, sfpantispam and ve_guestb
 
 
 * **Forge:**	http://forge.typo3.org/projects/extension-privacyguard
-* **TER:** http://typo3.org/extensions/repository/view/privacyguard
+* **TER:**      http://typo3.org/extensions/repository/view/privacyguard
+
+
+## Upgrade guide
+
+### Update from 1.5.0 to 2.0.0
+
+* Clear cache in Install Tool
+* Re-add all tasks in scheduler module
 
 
 ## ToDo
 
-* Test in TYPO3 6.2
 * Docs
 	* Migrate docs to ReSt
 	* Add screenshot
-	* Upgrade guide 
-		* Clear cache in Install Tool
-		* Re-add all tasks!
-
+	
 
 ## Contribution
 
