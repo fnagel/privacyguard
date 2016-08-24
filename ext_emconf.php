@@ -11,25 +11,25 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Privacy Guard',
-	'description' => 'This scheduler task cleans TYPO3 to improve the privacy of your customers. Currently works with comments, formhandler, px_phpids, sfpantispam and ve_guestbook, spamshield and sys_log table.',
-	'category' => 'services',
-	'author' => 'Felix Nagel',
-	'author_email' => 'info@felixnagel.com',
-	'state' => 'beta',
-	'internal' => '',
-	'uploadfolder' => 0,
-	'createDirs' => '',
-	'clearCacheOnLoad' => 0,
-	'version' => '2.0.1-dev',
-	'constraints' => array(
-		'depends' => array(
-			'php' => '5.4.0-7.0.99',
-			'typo3' => '6.2.0-7.6.99',
-			'scheduler' => '',
-		),
-		'conflicts' => array(),
-		'suggests' => array(),
-	),
-	'suggests' => array(),
+    'title' => 'Privacy Guard',
+    'description' => 'This scheduler task cleans TYPO3 to improve the privacy of your customers. Currently works with comments, formhandler, px_phpids, sfpantispam and ve_guestbook, spamshield and sys_log table.',
+    'category' => 'services',
+    'author' => 'Felix Nagel',
+    'author_email' => 'info@felixnagel.com',
+    'state' => 'beta',
+    'internal' => '',
+    'uploadfolder' => 0,
+    'createDirs' => '',
+    'clearCacheOnLoad' => 0,
+    'version' => '2.0.1-dev',
+    'constraints' => array(
+        'depends' => array(
+            'php' => '5.4.0-7.0.99',
+            'typo3' => '6.2.0-7.6.99',
+            'scheduler' => '',
+        ),
+        'conflicts' => array(),
+        'suggests' => array(),
+    ),
+    'suggests' => array(),
 );
