@@ -16,7 +16,7 @@ Features
 - Supported extensions:
 
   - formhandler
-  - px_phpids
+  - mkphpids
   - spamshield
 
 - More Extensions and features to come!

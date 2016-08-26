@@ -22,7 +22,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     public static $supportedExtensions = array(
         'formhandler' => 'Formhandler (EXT:formhandler)',
-        'px_phpids' => 'PHPIDS (EXT:px_phpids)',
+        'mkphpids' => 'PHPIDS (EXT:mkphpids)',
         'sys_log' => 'TYPO3 sys log',
         'spamshield' => 'spamshield (EXT:spamshield)',
     );
@@ -91,8 +91,8 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
                 $flag = $this->extFormhandler();
                 break;
 
-            case 'px_phpids':
-                $flag = $this->extPxPhpids();
+            case 'mkphpids':
+                $flag = $this->extMkPhpids();
                 break;
 
             case 'sys_log':
@@ -220,7 +220,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
 
         if ($this->privacyguard_time) {
             switch ($table) {
-                case 'tx_pxphpids_log':
+                case 'tx_mkphpids_log':
                     $where = 'UNIX_TIMESTAMP(created) < '.$timestamp;
                     break;
 
@@ -303,11 +303,11 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
     /**
      * @return bool
      */
-    public function extPxPhpids()
+    public function extMkPhpids()
     {
         $fields = array();
 
-        $table = 'tx_pxphpids_log';
+        $table = 'tx_mkphpids_log';
         $fields['ip'] = '';
 
         return $this->processCleaning($table, $fields);
