@@ -21,7 +21,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      * @var string
      */
     public static $supportedExtensions = array(
-        'comments' => 'Commenting system (EXT:comments)',
         'formhandler' => 'Formhandler (EXT:formhandler)',
         'px_phpids' => 'PHPIDS (EXT:px_phpids)',
         'sfpantispam' => 'Anti Spam (EXT:sfpantispam)',
@@ -90,10 +89,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
         $flag = false;
 
         switch ($this->privacyguard_extkey) {
-            case 'comments':
-                $flag = $this->extComments();
-                break;
-
             case 'formhandler':
                 $flag = $this->extFormhandler();
                 break;
@@ -349,19 +344,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
         $fields = array();
 
         $table = 'tx_veguestbook_entries';
-        $fields['remote_addr'] = '';
-
-        return $this->processCleaning($table, $fields);
-    }
-
-    /**
-     * @return bool
-     */
-    public function extComments()
-    {
-        $fields = array();
-
-        $table = 'tx_comments_comments';
         $fields['remote_addr'] = '';
 
         return $this->processCleaning($table, $fields);
