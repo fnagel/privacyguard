@@ -16,6 +16,21 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
     protected $debugging = false;
 
     /**
+     * Array of supported extensions
+     *
+     * @var string
+     */
+    public static $supportedExtensions = array(
+        'comments' => 'Commenting system (EXT:comments)',
+        'formhandler' => 'Formhandler (EXT:formhandler)',
+        'px_phpids' => 'PHPIDS (EXT:px_phpids)',
+        'sfpantispam' => 'Anti Spam (EXT:sfpantispam)',
+        've_guestbook' => 'Modern Guestbook (EXT:ve_guestbook)',
+        'sys_log' => 'TYPO3 sys log',
+        'spamshield' => 'spamshield (EXT:spamshield)',
+    );
+
+    /**
      * @var string
      */
     public $privacyguard_extkey;
