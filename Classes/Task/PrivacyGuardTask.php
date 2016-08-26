@@ -23,7 +23,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
     public static $supportedExtensions = array(
         'formhandler' => 'Formhandler (EXT:formhandler)',
         'px_phpids' => 'PHPIDS (EXT:px_phpids)',
-        've_guestbook' => 'Modern Guestbook (EXT:ve_guestbook)',
         'sys_log' => 'TYPO3 sys log',
         'spamshield' => 'spamshield (EXT:spamshield)',
     );
@@ -94,10 +93,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
 
             case 'px_phpids':
                 $flag = $this->extPxPhpids();
-                break;
-
-            case 've_guestbook':
-                $flag = $this->extVeGuestbook();
                 break;
 
             case 'sys_log':
@@ -314,19 +309,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
 
         $table = 'tx_pxphpids_log';
         $fields['ip'] = '';
-
-        return $this->processCleaning($table, $fields);
-    }
-
-    /**
-     * @return bool
-     */
-    public function extVeGuestbook()
-    {
-        $fields = array();
-
-        $table = 'tx_veguestbook_entries';
-        $fields['remote_addr'] = '';
 
         return $this->processCleaning($table, $fields);
     }
