@@ -52,20 +52,15 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     public function execute()
     {
-        $flag = false;
-
         $this->cleanValues();
 
-        if (
-            $this->privacyguard_extkey === 'sys_log' ||
-            ExtensionManagementUtility::isLoaded($this->privacyguard_extkey)
-        ) {
-            $flag = $this->chooseExtension();
-        } else {
-            $this->log('Extension '.$this->privacyguard_extkey.' is not installed', 3);
+        if ($this->privacyguard_extkey !== 'sys_log' && !$this->isExtensionLoaded()) {
+            $this->log('Extension ' . $this->privacyguard_extkey . ' is not installed', 3);
+
+            return false;
         }
 
-        return $flag;
+        return $this->chooseExtension();
     }
 
     /**
@@ -75,7 +70,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      *
      * @return bool
      */
-    public function chooseExtension()
+    protected function chooseExtension()
     {
         $flag = false;
 
@@ -132,7 +127,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
 
     /**
      */
-    public function cleanValues()
+    protected function cleanValues()
     {
         $this->privacyguard_time = strip_tags($this->privacyguard_time);
         $this->privacyguard_extkey = strip_tags($this->privacyguard_extkey);
@@ -151,7 +146,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      *
      * @throws \Exception
      */
-    public function processCleaning($table, $fields)
+    protected function processCleaning($table, $fields)
     {
         $flag = false;
 
@@ -218,7 +213,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      *
      * @return string
      */
-    public function getWhereClause($table)
+    protected function getWhereClause($table)
     {
         $where = '';
         $timestamp = $this->getWhereTimestamp();
@@ -244,7 +239,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
     /**
      * @return int|string
      */
-    public function getWhereTimestamp()
+    protected function getWhereTimestamp()
     {
         $timestamp = '';
 
@@ -405,6 +400,14 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
     protected function translate($key, $prefix = 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xml:')
     {
         return $this->languageService->sL($prefix.$key);
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isExtensionLoaded()
+    {
+        return ExtensionManagementUtility::isLoaded($this->privacyguard_extkey);
     }
 
     /**
