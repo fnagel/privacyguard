@@ -22,6 +22,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     public static $supportedExtensions = array(
         'formhandler' => 'Formhandler (EXT:formhandler)',
+        'femanager' => 'FE Manager (EXT:femanager - BETA!)',
         'mkphpids' => 'PHPIDS (EXT:mkphpids)',
         'sys_log' => 'TYPO3 sys log',
         'spamshield' => 'spamshield (EXT:spamshield)',
@@ -89,6 +90,10 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
         switch ($this->privacyguard_extkey) {
             case 'formhandler':
                 $flag = $this->extFormhandler();
+                break;
+
+            case 'femanager':
+                $flag = $this->extFeManager();
                 break;
 
             case 'mkphpids':
@@ -296,6 +301,18 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
 
         $table = 'tx_formhandler_log';
         $fields['ip'] = '';
+
+        return $this->processCleaning($table, $fields);
+    }
+
+    /**
+     * @return bool
+     */
+    public function extFeManager()
+    {
+        $fields = array();
+
+        $table = 'tx_femanager_domain_model_log';
 
         return $this->processCleaning($table, $fields);
     }

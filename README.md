@@ -1,7 +1,7 @@
 # TYPO3 privacy guard
 
 This scheduler task cleans TYPO3 to improve the privacy of your customers.
-Currently works with formhandler, mkphpids, spamshield and sys_log table.
+Currently works with formhandler, femanager, mkphpids, spamshield and sys_log table.
 
 
 * **Forge:**	http://forge.typo3.org/projects/extension-privacyguard
@@ -19,8 +19,7 @@ Currently works with formhandler, mkphpids, spamshield and sys_log table.
 ## ToDo
 
 * Docs
-	* Migrate docs to ReSt
-	* Add screenshot
+	* Add screenshots
 	
 
 ## Contribution

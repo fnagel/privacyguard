@@ -16,6 +16,7 @@ Features
 - Supported extensions:
 
   - formhandler
+  - femanager
   - mkphpids
   - spamshield
 
