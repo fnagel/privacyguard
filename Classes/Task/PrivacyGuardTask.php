@@ -23,7 +23,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
     public static $supportedExtensions = array(
         'formhandler' => 'Formhandler (EXT:formhandler)',
         'px_phpids' => 'PHPIDS (EXT:px_phpids)',
-        'sfpantispam' => 'Anti Spam (EXT:sfpantispam)',
         've_guestbook' => 'Modern Guestbook (EXT:ve_guestbook)',
         'sys_log' => 'TYPO3 sys log',
         'spamshield' => 'spamshield (EXT:spamshield)',
@@ -95,10 +94,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
 
             case 'px_phpids':
                 $flag = $this->extPxPhpids();
-                break;
-
-            case 'sfpantispam':
-                $flag = $this->extSfantispam();
                 break;
 
             case 've_guestbook':
@@ -295,19 +290,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
         }
 
         return $timestamp;
-    }
-
-    /**
-     * @return bool
-     */
-    public function extSfantispam()
-    {
-        $fields = array();
-
-        $table = 'tx_sfpantispam_log';
-        $fields['ipaddress'] = '';
-
-        return $this->processCleaning($table, $fields);
     }
 
     /**
