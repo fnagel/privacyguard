@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
     'title' => 'Privacy Guard',
-    'description' => 'This scheduler task cleans TYPO3 to improve the privacy of your customers. Currently works with comments, formhandler, px_phpids, sfpantispam and ve_guestbook, spamshield and sys_log table.',
+    'description' => 'This scheduler task cleans TYPO3 to improve the privacy of your customers. Currently works with formhandler, px_phpids, spamshield and sys_log table.',
     'category' => 'services',
     'author' => 'Felix Nagel',
     'author_email' => 'info@felixnagel.com',

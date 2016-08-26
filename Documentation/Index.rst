@@ -24,7 +24,7 @@ EXT: Privacy Guard
 
     :Description:
         This scheduler task cleans TYPO3 to improve the privacy of your customers. Currently works
-        with comments, formhandler, px_phpids, sfpantispam and ve_guestbook, spamshield and sys_log
+        with formhandler, px_phpids, ve_guestbook, spamshield and sys_log
         table.
 
     :Keywords:

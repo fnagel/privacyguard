@@ -12,12 +12,11 @@ Features
 ^^^^^^^^
 
 - Delete whole entries or IP addresses only
+- Support for sys_log table
 - Supported extensions:
 
   - formhandler
-  - sfpantispam
-  - ve_guestbook
-  - comments
   - px_phpids
+  - spamshield
 
 - More Extensions and features to come!
