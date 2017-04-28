@@ -6,6 +6,6 @@
 conf.py:
   copyright: 2017
   project: privacyguard
-  version: 2.0.1
-  release: 2.0.1
+  version: 2.1.0
+  release: 2.1.0
 ...
