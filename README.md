@@ -8,19 +8,10 @@ Currently works with formhandler, ve_guestbook, femanager, mkphpids, spamshield 
 * **TER:**      http://typo3.org/extensions/repository/view/privacyguard
 
 
-## Upgrade guide
+## Documentation
 
-### Update from 1.5.0 to 2.0.0
+See [/Documentation](Documentation) (latest) directory or [online](http://docs.typo3.org/typo3cms/extensions/privacyguard/) (latest TER)
 
-* Clear cache in Install Tool
-* Re-add all tasks in scheduler module
-
-
-## ToDo
-
-* Docs
-	* Add screenshots
-	
 
 ## Contribution
 

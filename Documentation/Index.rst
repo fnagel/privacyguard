@@ -59,6 +59,7 @@ EXT: Privacy Guard
     Introduction/Index
     UsersManual/Index
     Installation/Index
+    UpgradeGuide/Index
     KnownProblems/Index
     TodoList/Index
     Credits/Index
