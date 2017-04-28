@@ -4,8 +4,8 @@
 
 ---
 conf.py:
-  copyright: 2010-2016
-  project: EXT: Privacy Guard
-  version: 2.0
+  copyright: 2017
+  project: privacyguard
+  version: 2.0.1
   release: 2.0.1
 ...
