@@ -16,6 +16,7 @@ Features
 - Supported extensions:
 
   - formhandler
+  - ve_guestbook
   - femanager
   - mkphpids
   - spamshield
