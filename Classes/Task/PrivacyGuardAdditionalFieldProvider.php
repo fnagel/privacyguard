@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\PrivacyGuard\Task;
+namespace FelixNagel\PrivacyGuard\Task;
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
@@ -28,7 +28,7 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
      * Gets additional fields to render in the form to add/edit a task.
      *
      * @param array $taskInfo Values of the fields from the add/edit task form
-     * @param \TYPO3\PrivacyGuard\Task\PrivacyGuardTask $task The task object
+     * @param \FelixNagel\PrivacyGuard\Task\PrivacyGuardTask $task The task object
      * @param \TYPO3\CMS\Scheduler\Controller\SchedulerModuleController $schedulerModule
      *
      * @return array

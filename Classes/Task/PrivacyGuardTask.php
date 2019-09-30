@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\PrivacyGuard\Task;
+namespace FelixNagel\PrivacyGuard\Task;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
