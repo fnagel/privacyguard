@@ -69,7 +69,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
         $this->cleanValues();
 
         if ($this->privacyguard_extkey !== 'sys_log' && !$this->isExtensionLoaded()) {
-            $this->log('Extension ' . $this->privacyguard_extkey . ' is not installed', 3);
+            $this->log('Extension ' . $this->privacyguard_extkey . ' is not installed');
 
             return false;
         }
@@ -161,7 +161,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
         $flag = false;
 
         if (strlen($table) < 3) {
-            $this->log('No TABLE given', 3);
+            $this->log('No TABLE given');
 
             return false;
         }
@@ -408,18 +408,12 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
 
     /**
      * @param $msg
-     * @param int $status
      */
-    protected function log($msg, $status = 1)
+    protected function log($msg)
     {
-        // higher status for debugging
         if ($this->debugging) {
             \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($msg);
-            $status = 3;
-        }
-        // write dev log if enabled
-        if (TYPO3_DLOG) {
-            GeneralUtility::devLog($msg, 'privacyguard', $status);
+            GeneralUtility::devLog($msg, 'privacyguard', 3);
         }
     }
 }
