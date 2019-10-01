@@ -2,8 +2,11 @@
 
 namespace FelixNagel\PrivacyGuard\Task;
 
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 /**
  * Class PrivacyGuardTask.
@@ -153,8 +156,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      * @param $fields
      *
      * @return bool
-     *
-     * @throws \Exception
      */
     protected function processCleaning($table, $fields)
     {
@@ -166,52 +167,63 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
             return false;
         }
 
-        switch ($this->privacyguard_method) {
-            case 'delete_ip':
-            case 'anonymize_ip':
-                $where = $this->getWhereClause($table);
-                if ($this->debugging) {
-                    $this->log('SQL DEBUG: '.$this->getDatabase()->UPDATEquery($table, $where, $fields));
-                } else {
-                    $res = $this->getDatabase()->exec_UPDATEquery($table, $where, $fields);
-                    $flag = true;
-                }
-                break;
 
-            case 'delete_all':
-                if ($this->privacyguard_time) {
-                    $where = $this->getWhereClause($table);
+        try {
+            $queryBuilder = $this->getQueryBuilder($table);
+
+            switch ($this->privacyguard_method) {
+                case 'delete_ip':
+                case 'anonymize_ip':
+                    $where = $this->getWhereConstraints($queryBuilder, $table);
+                    $queryBuilder
+                        ->update($table)
+                        ->where($where);
+
+                    foreach ($fields as $property => $value) {
+                        $queryBuilder->set($property, $value);
+                    }
+
+                    $queryBuilder->execute();
+
                     if ($this->debugging) {
-                        $this->log('SQL DEBUG: '.$this->getDatabase()->DELETEquery($table, $where));
+                        $this->log('SQL DEBUG: '.$queryBuilder->getSQL());
                     } else {
-                        $res = $this->getDatabase()->exec_DELETEquery($table, $where);
                         $flag = true;
                     }
-                } else {
-                    // use truncate for better performance when all entries should be deleted
-                    if ($this->debugging) {
-                        $this->log('SQL DEBUG: TRUNCATE TABLE '.$table.';');
+                    break;
+
+                case 'delete_all':
+                    if ($this->privacyguard_time) {
+                        $where = $this->getWhereConstraints($queryBuilder, $table);
+                        $queryBuilder
+                            ->delete($table)
+                            ->where($where)
+                            ->execute();
+                        if ($this->debugging) {
+                            $this->log('SQL DEBUG: '.$queryBuilder->getSQL());
+                        } else {
+                            $flag = true;
+                        }
                     } else {
-                        $res = $this->getDatabase()->sql_query('TRUNCATE TABLE '.$table.';');
+                        // Use truncate for better performance when all entries should be deleted
+                        $queryBuilder->getConnection()->truncate($table, false);
+                        if ($this->debugging) {
+                            $this->log('SQL DEBUG: TRUNCATE TABLE '.$table.';');
+                        } else {
+                            $flag = true;
+                        }
                     }
-                }
-                break;
+                    break;
 
-            default:
-                return false;
-        }
-
-        if (!$this->debugging) {
-            $error = $this->getDatabase()->sql_error();
-            if ($error) {
+                default:
+                    return false;
+            }
+        } catch (\Exception $exception) {
+            if (!$this->debugging) {
                 throw new \Exception(
-                    'tx_privacyguard_cleaner failed for table '.$table.' with error: '.$error,
+                    'tx_privacyguard_cleaner failed for table '.$table.' with error: '.$exception->getMessage(),
                     1308255491
                 );
-            }
-
-            if (isset($res)) {
-                $this->getDatabase()->sql_free_result($res);
             }
         }
 
@@ -219,11 +231,12 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
     }
 
     /**
-     * @param $table
+     * @param QueryBuilder $queryBuilder
+     * @param string $table
      *
      * @return string
      */
-    protected function getWhereClause($table)
+    protected function getWhereConstraints(QueryBuilder $queryBuilder, $table)
     {
         $where = '';
         $timestamp = $this->getWhereTimestamp();
@@ -231,19 +244,39 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
         if ($this->privacyguard_time) {
             switch ($table) {
                 case 'tx_mkphpids_log':
-                    $where = 'UNIX_TIMESTAMP(created) < '.$timestamp;
+                    $where = $queryBuilder->expr()->lt(
+                        'UNIX_TIMESTAMP(created)',
+                        $queryBuilder->createNamedParameter($timestamp, \PDO::PARAM_INT)
+                    );
                     break;
 
                 case 'sys_log':
-                    $where = 'tstamp < '.$timestamp;
+                    $where = $queryBuilder->expr()->lt(
+                        'tstamp',
+                        $queryBuilder->createNamedParameter($timestamp, \PDO::PARAM_INT)
+                    );
                     break;
 
                 default:
-                    $where = 'crdate < '.$timestamp;
+                    $where = $queryBuilder->expr()->lt(
+                        'crdate',
+                        $queryBuilder->createNamedParameter($timestamp, \PDO::PARAM_INT)
+                    );
             }
         }
 
         return $where;
+    }
+
+    /**
+     * @param string $table
+     * @return QueryBuilder
+     */
+    protected function getQueryBuilder($table)
+    {
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+
+        return $objectManager->get(ConnectionPool::class)->getQueryBuilderForTable($table);
     }
 
     /**
@@ -373,16 +406,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
         $fields['ip'] = '';
 
         return $this->processCleaning($table, $fields);
-    }
-
-    /**
-     * Get database connection.
-     *
-     * @return \TYPO3\CMS\Core\Database\DatabaseConnection
-     */
-    protected function getDatabase()
-    {
-        return $GLOBALS['TYPO3_DB'];
     }
 
     /**
