@@ -41,7 +41,7 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
         // process fields
         if (empty($taskInfo['privacyguard_extkey'])) {
             if ($schedulerModule->CMD == 'add') {
-                $taskInfo['privacyguard_extkey'] = array();
+                $taskInfo['privacyguard_extkey'] = [];
             } elseif ($schedulerModule->CMD == 'edit') {
                 $taskInfo['privacyguard_extkey'] = $task->privacyguard_extkey;
             } else {
@@ -50,7 +50,7 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
         }
         if (empty($taskInfo['privacyguard_time'])) {
             if ($schedulerModule->CMD == 'add') {
-                $taskInfo['privacyguard_time'] = array();
+                $taskInfo['privacyguard_time'] = [];
             } elseif ($schedulerModule->CMD == 'edit') {
                 $taskInfo['privacyguard_time'] = $task->privacyguard_time;
             } else {
@@ -77,12 +77,12 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
         }
         $fieldCode .= '</select>';
 
-        $additionalFields[$fieldId] = array(
+        $additionalFields[$fieldId] = [
             'code' => $fieldCode,
             'label' => BackendUtility::wrapInHelp('privacyguard', $fieldId, $this->translate('addfields_label_extension')),
             'cshKey' => '_MOD_tools_txschedulerM1',
             'cshLabel' => $fieldId,
-        );
+        ];
 
         // render time field
         $fieldId = 'task_privacyguard_time';
@@ -94,12 +94,12 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
         }
         $fieldCode .= '</select>';
 
-        $additionalFields[$fieldId] = array(
+        $additionalFields[$fieldId] = [
             'code' => $fieldCode,
             'label' => BackendUtility::wrapInHelp('privacyguard', $fieldId, $this->translate('addfields_label_time')),
             'cshKey' => '_MOD_tools_txschedulerM1',
             'cshLabel' => $fieldId,
-        );
+        ];
 
         // render method field
         $fieldId = 'task_privacyguard_method';
@@ -112,12 +112,12 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
         }
         $fieldCode .= '</select>';
 
-        $additionalFields[$fieldId] = array(
+        $additionalFields[$fieldId] = [
             'code' => $fieldCode,
             'label' => BackendUtility::wrapInHelp('privacyguard', $fieldId, $this->translate('addfields_label_method')),
             'cshKey' => '_MOD_tools_txschedulerM1',
             'cshLabel' => $fieldId,
-        );
+        ];
 
         return $additionalFields;
     }
@@ -139,7 +139,7 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
      */
     public function getTimes()
     {
-        return array(
+        return [
             '0' => $this->translate('addfields_time_all'),
             '24h' => '24 '.$this->translate('addfields_time_h'),
             '48h' => '48 '.$this->translate('addfields_time_h'),
@@ -150,7 +150,7 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
             '3m' => '3 '.$this->translate('addfields_time_m'),
             '6m' => '6 '.$this->translate('addfields_time_m'),
             '12m' => '12 '.$this->translate('addfields_time_m'),
-        );
+        ];
     }
 
     /**
@@ -160,11 +160,11 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
      */
     public function getMethods()
     {
-        return array(
+        return [
             'delete_ip' => $this->translate('addfields_method_delete_ip'),
             // 'anonymize_ip' => $this->translate('addfields_method_anonymize_ip'),
             'delete_all' => $this->translate('addfields_method_delete_all'),
-        );
+        ];
     }
 
     /**

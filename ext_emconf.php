@@ -10,7 +10,7 @@
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = [
     'title' => 'Privacy Guard',
     'description' => 'This scheduler task cleans TYPO3 to improve the privacy of your customers. Currently works with formhandler, ve_guestbook, femanager, mkphpids, spamshield and sys_log table. Useful for GDPR / DSGVO compliance.',
     'category' => 'services',
@@ -22,14 +22,14 @@ $EM_CONF[$_EXTKEY] = array(
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
     'version' => '2.1.1-dev',
-    'constraints' => array(
-        'depends' => array(
+    'constraints' => [
+        'depends' => [
             'php' => '7.0.0-7.2.99',
             'typo3' => '8.7.0-9.5.99',
             'scheduler' => '',
-        ),
-        'conflicts' => array(),
-        'suggests' => array(),
-    ),
-    'suggests' => array(),
-);
+        ],
+        'conflicts' => [],
+        'suggests' => [],
+    ],
+    'suggests' => [],
+];

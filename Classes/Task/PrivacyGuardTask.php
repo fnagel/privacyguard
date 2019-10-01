@@ -23,14 +23,14 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      *
      * @var string
      */
-    public static $supportedExtensions = array(
+    public static $supportedExtensions = [
         'formhandler' => 'Formhandler (EXT:formhandler)',
         'femanager' => 'FE Manager (EXT:femanager - BETA!)',
         'mkphpids' => 'PHPIDS (EXT:mkphpids)',
         've_guestbook' => 'Modern Guestbook (EXT:ve_guestbook)',
         'sys_log' => 'TYPO3 sys log',
         'spamshield' => 'spamshield (EXT:spamshield)',
-    );
+    ];
 
     /**
      * @var string
@@ -335,7 +335,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     public function extFormhandler()
     {
-        $fields = array();
+        $fields = [];
 
         $table = 'tx_formhandler_log';
         $fields['ip'] = '';
@@ -348,7 +348,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     public function extFeManager()
     {
-        $fields = array();
+        $fields = [];
 
         $table = 'tx_femanager_domain_model_log';
 
@@ -360,7 +360,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     public function extMkPhpids()
     {
-        $fields = array();
+        $fields = [];
 
         $table = 'tx_mkphpids_log';
         $fields['ip'] = '';
@@ -373,7 +373,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     public function extVeGuestbook()
     {
-        $fields = array();
+        $fields = [];
 
         $table = 'tx_veguestbook_entries';
         $fields['remote_addr'] = '';
@@ -386,7 +386,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     public function extSysLog()
     {
-        $fields = array();
+        $fields = [];
 
         $table = 'sys_log';
         $fields['IP'] = '';
@@ -400,7 +400,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     public function extSpamshield()
     {
-        $fields = array();
+        $fields = [];
 
         $table = 'tx_spamshield_log';
         $fields['ip'] = '';
