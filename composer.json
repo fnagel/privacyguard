@@ -1,0 +1,51 @@
+{
+	"name": "felixnagel/privacyguard",
+	"type": "typo3-cms-extension",
+	"description": "This scheduler task cleans database records in TYPO3 to improve the privacy of your customers. Useful for GDPR / DSGVO compliance.",
+	"keywords": [
+		"TYPO3 CMS",
+		"cleanup",
+		"scheduler",
+		"database",
+		"records",
+		"GDPR",
+		"DSGVO"
+	],
+	"homepage": "https://github.com/fnagel/privacyguard",
+	"support": {
+		"issues": "https://github.com/fnagel/privacyguard/issues"
+	},
+	"authors": [
+		{
+			"name": "Felix Nagel",
+			"email": "info@felixnagel.com",
+			"homepage": "http://www.felixnagel.com",
+			"role": "Developer"
+		}
+	],
+	"license": "GPL-2.0+",
+	"require": {
+		"php": ">=7.0,<7.3",
+		"typo3/cms-core": ">=8.7,<=9.99.99"
+	},
+	"autoload": {
+		"psr-4": {
+			"FelixNagel\\PrivacyGuard\\": "Classes/"
+		}
+	},
+	"replace": {
+		"privacyguard": "self.version",
+		"typo3-ter/privacyguard": "self.version"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/TYPO3/TYPO3.CMS"
+		}
+	],
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "privacyguard"
+		}
+	}
+}
