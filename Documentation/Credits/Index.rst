@@ -11,7 +11,7 @@
 Credits
 =======
 
-`Paints Multimedia in Hamburg <http://www.paints.de/>`__  for initial sponsoring the development of
+`Paints Multimedia in Hamburg <http://www.paints.de/>`__  for sponsoring the initial development of
 this extension.
 
 `FamFamFam <http://www.famfamfam.com/lab/icons/silk/>`__  for its great icons.

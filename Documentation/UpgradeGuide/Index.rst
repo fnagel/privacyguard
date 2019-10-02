@@ -22,6 +22,7 @@ Update from 2.1.x to 3.0.0
 * Changed PHP namespace to `FelixNagel`
 * Remove deprecated `TYPO3_DB` usage
 * Switch to PSR-2 CGL
+* Update docs
 
 **How to update**
 * Use "Clear all caches including PHP opcode cache" and "Dump Autoload Information" in the install tool (if needed for your setup)

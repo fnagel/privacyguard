@@ -11,4 +11,4 @@
 Known problems
 ==============
 
-Please see: http://forge.typo3.org/projects/extension-privacyguard/issues
+Please see: https://github.com/fnagel/privacyguard/issues

@@ -15,7 +15,7 @@ Introduction
 What does it do?
 ----------------
 
-Privacy Guard is an additional tasks for the TYPO3 scheduler (delivered with TYPO 4.3). It cleans
+Privacy Guard is an additional tasks for the TYPO3 scheduler (core feature since TYPO 4.3). It cleans
 old entries within your TYPO3 installation to improve the privacy of your customers.
 
 **Please note:**

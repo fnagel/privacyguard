@@ -12,4 +12,4 @@ To-Do list
 ==========
 
 Please take a look in the source and look for **ToDo** comments or see:
-http://forge.typo3.org/projects/extension-privacyguard/issues
+https://github.com/fnagel/privacyguard/issues
