@@ -36,7 +36,6 @@
 		}
 	},
 	"replace": {
-		"privacyguard": "self.version",
 		"typo3-ter/privacyguard": "self.version"
 	},
 	"repositories": [
