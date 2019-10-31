@@ -11,46 +11,44 @@
 EXT: Privacy Guard
 ==================
 
-.. only:: html
+:Classification:
+    privacyguard
 
-    :Classification:
-        privacyguard
+:Version:
+    |release|
 
-    :Version:
-        |release|
+:Language:
+    en
 
-    :Language:
-        en
+:Description:
+    This scheduler task cleans TYPO3 to improve the privacy of your customers. Currently works
+    with formhandler, femanager, mkphpids, ve_guestbook, spamshield and sys_log
+    table.
 
-    :Description:
-        This scheduler task cleans TYPO3 to improve the privacy of your customers. Currently works
-        with formhandler, femanager, mkphpids, ve_guestbook, spamshield and sys_log
-        table.
+:Keywords:
+    forAdmins, privacy, data, anonym, protect
 
-    :Keywords:
-        forAdmins, privacy, data, anonym, protect
+:Copyright:
+    2010-2017
 
-    :Copyright:
-        2010-2017
+:Author:
+    Felix Nagel
 
-    :Author:
-        Felix Nagel
+:Email:
+    info@felixnagel.com
 
-    :Email:
-        info@felixnagel.com
+:License:
+    This document is published under the Open Publication License
+    available from http://www.opencontent.org/openpub/
 
-    :License:
-        This document is published under the Open Publication License
-        available from http://www.opencontent.org/openpub/
+:Rendered:
+    |today|
 
-    :Rendered:
-        |today|
-
-    The content of this document is related to TYPO3,
-    a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
+The content of this document is related to TYPO3,
+a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
 
 
-    **Table of Contents**
+**Table of Contents**
 
 .. toctree::
     :maxdepth: 3
