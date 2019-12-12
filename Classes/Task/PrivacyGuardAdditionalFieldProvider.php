@@ -12,11 +12,12 @@ namespace FelixNagel\PrivacyGuard\Task;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Scheduler\AbstractAdditionalFieldProvider;
 
 /**
  * Class PrivacyGuardAdditionalFieldProvider.
  */
-class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\AdditionalFieldProviderInterface
+class PrivacyGuardAdditionalFieldProvider extends AbstractAdditionalFieldProvider
 {
     /**
      * @var \TYPO3\CMS\Lang\LanguageService
@@ -196,7 +197,7 @@ class PrivacyGuardAdditionalFieldProvider implements \TYPO3\CMS\Scheduler\Additi
 
             default:
                 if (!ExtensionManagementUtility::isLoaded($submittedData['privacyguard_extkey'])) {
-                    $schedulerModule->addMessage(
+                    $this->addMessage(
                         sprintf($this->translate('addfields_notice_ext_not_installed'), $submittedData['privacyguard_extkey']),
                         FlashMessage::ERROR
                     );
