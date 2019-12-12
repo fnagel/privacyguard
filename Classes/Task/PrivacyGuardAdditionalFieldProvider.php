@@ -9,6 +9,7 @@ namespace FelixNagel\PrivacyGuard\Task;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
@@ -20,7 +21,7 @@ use TYPO3\CMS\Scheduler\AbstractAdditionalFieldProvider;
 class PrivacyGuardAdditionalFieldProvider extends AbstractAdditionalFieldProvider
 {
     /**
-     * @var \TYPO3\CMS\Lang\LanguageService
+     * @var LanguageService
      */
     protected $languageService;
 
