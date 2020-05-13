@@ -14,6 +14,8 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Scheduler\AbstractAdditionalFieldProvider;
+use TYPO3\CMS\Scheduler\Controller\SchedulerModuleController;
+use TYPO3\CMS\Scheduler\Task\AbstractTask;
 
 /**
  * Class PrivacyGuardAdditionalFieldProvider.
@@ -37,39 +39,41 @@ class PrivacyGuardAdditionalFieldProvider extends AbstractAdditionalFieldProvide
      * Gets additional fields to render in the form to add/edit a task.
      *
      * @param array $taskInfo Values of the fields from the add/edit task form
-     * @param \FelixNagel\PrivacyGuard\Task\PrivacyGuardTask $task The task object
-     * @param \TYPO3\CMS\Scheduler\Controller\SchedulerModuleController $schedulerModule
+     * @param PrivacyGuardTask $task The task object
+     * @param SchedulerModuleController $schedulerModule
      *
      * @return array
      */
     public function getAdditionalFields(
         array &$taskInfo,
         $task,
-        \TYPO3\CMS\Scheduler\Controller\SchedulerModuleController $schedulerModule
+        SchedulerModuleController $schedulerModule
     ) {
+        $action = (string)$schedulerModule->getCurrentAction();
+
         // process fields
         if (empty($taskInfo['privacyguard_extkey'])) {
-            if ($schedulerModule->CMD == 'add') {
+            if ($action === 'add') {
                 $taskInfo['privacyguard_extkey'] = [];
-            } elseif ($schedulerModule->CMD == 'edit') {
+            } elseif ($action === 'edit') {
                 $taskInfo['privacyguard_extkey'] = $task->privacyguard_extkey;
             } else {
                 $taskInfo['privacyguard_extkey'] = '';
             }
         }
         if (empty($taskInfo['privacyguard_time'])) {
-            if ($schedulerModule->CMD == 'add') {
+            if ($action === 'add') {
                 $taskInfo['privacyguard_time'] = [];
-            } elseif ($schedulerModule->CMD == 'edit') {
+            } elseif ($action === 'edit') {
                 $taskInfo['privacyguard_time'] = $task->privacyguard_time;
             } else {
                 $taskInfo['privacyguard_time'] = '';
             }
         }
         if (empty($taskInfo['privacyguard_method'])) {
-            if ($schedulerModule->CMD == 'add') {
+            if ($action === 'add') {
                 $taskInfo['privacyguard_method'] = 0;
-            } elseif ($schedulerModule->CMD == 'edit') {
+            } elseif ($action === 'edit') {
                 $taskInfo['privacyguard_method'] = $task->privacyguard_method;
             } else {
                 $taskInfo['privacyguard_method'] = 0;
@@ -171,6 +175,7 @@ class PrivacyGuardAdditionalFieldProvider extends AbstractAdditionalFieldProvide
     {
         return [
             'delete_ip' => $this->translate('addfields_method_delete_ip'),
+            // @todo anonymize_ip is not implemented yet
             // 'anonymize_ip' => $this->translate('addfields_method_anonymize_ip'),
             'delete_all' => $this->translate('addfields_method_delete_all'),
         ];
@@ -183,7 +188,7 @@ class PrivacyGuardAdditionalFieldProvider extends AbstractAdditionalFieldProvide
      */
     public function validateAdditionalFields(
         array &$submittedData,
-        \TYPO3\CMS\Scheduler\Controller\SchedulerModuleController $schedulerModule
+        SchedulerModuleController $schedulerModule
     ) {
         $validInput = true;
 
@@ -212,7 +217,7 @@ class PrivacyGuardAdditionalFieldProvider extends AbstractAdditionalFieldProvide
     /**
      * {@inheritdoc}
      */
-    public function saveAdditionalFields(array $submittedData, \TYPO3\CMS\Scheduler\Task\AbstractTask $task)
+    public function saveAdditionalFields(array $submittedData, AbstractTask $task)
     {
         $task->privacyguard_extkey = $submittedData['privacyguard_extkey'];
         $task->privacyguard_time = $submittedData['privacyguard_time'];
