@@ -444,7 +444,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
     {
         if ($this->debugging) {
             \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($msg);
-            GeneralUtility::devLog($msg, 'privacyguard', 3);
         }
     }
 }
