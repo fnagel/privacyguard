@@ -12,6 +12,17 @@ Upgrade Guide
 =============
 
 
+Update from 3.0.0 to 3.1.0
+--------------------------
+
+* TYPO3 10.x support
+* Remove TYPO3 8.x
+* Minor improvements and code clean up
+
+**How to update**
+* Clear cache in Install Tool
+
+
 Update from 2.1.x to 3.0.0
 --------------------------
 
