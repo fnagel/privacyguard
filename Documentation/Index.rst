@@ -29,7 +29,7 @@ EXT: Privacy Guard
     forAdmins, privacy, data, anonym, protect
 
 :Copyright:
-    2010-2017
+    2010-2020
 
 :Author:
     Felix Nagel
