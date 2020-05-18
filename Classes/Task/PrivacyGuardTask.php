@@ -11,7 +11,6 @@ namespace FelixNagel\PrivacyGuard\Task;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
-use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
@@ -54,21 +53,6 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      * @var string
      */
     public $privacyguard_method;
-
-    /**
-     * @var LanguageService
-     */
-    protected $languageService;
-
-    /**
-     * Construct class.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->languageService = $GLOBALS['LANG'];
-    }
 
     /**
      * {@inheritdoc}
@@ -426,7 +410,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      */
     protected function translate($key, $prefix = 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xml:')
     {
-        return $this->languageService->sL($prefix.$key);
+        return $GLOBALS['LANG']->sL($prefix.$key);
     }
 
     /**
