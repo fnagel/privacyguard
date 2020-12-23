@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2020-12-23T22:49:40Z">
+		<header/>
+		<body>
+			<trans-unit id="addfields_label_extension">
+				<target>Ausgewählte Extension:</target>
+			</trans-unit>
+			<trans-unit id="addfields_label_method">
+				<target>Was soll gelöscht werden?</target>
+			</trans-unit>
+			<trans-unit id="addfields_label_time">
+				<target>Zu löschender Zeitraum:</target>
+			</trans-unit>
+			<trans-unit id="addfields_method_anonymize_ip">
+				<target>IP anonymisieren</target>
+			</trans-unit>
+			<trans-unit id="addfields_method_delete_all">
+				<target>Datensatz löschen</target>
+			</trans-unit>
+			<trans-unit id="addfields_method_delete_ip">
+				<target>IP löschen</target>
+			</trans-unit>
+			<trans-unit id="addfields_notice_ext_not_installed">
+				<target>Bitte stellen Sie sicher das Extension '%s' installiert wurde.</target>
+			</trans-unit>
+			<trans-unit id="addfields_time_all">
+				<target>Alle Datensätze</target>
+			</trans-unit>
+			<trans-unit id="addfields_time_d">
+				<target>Tage</target>
+			</trans-unit>
+			<trans-unit id="addfields_time_h">
+				<target>Stunden</target>
+			</trans-unit>
+			<trans-unit id="addfields_time_m">
+				<target>Monate</target>
+			</trans-unit>
+			<trans-unit id="localconf_description">
+				<target>Säubert regelmäßig Ihre TYPO3 Installation um Datenschutz und Privatsphäre Ihrer Kunden zu verbessern.</target>
+			</trans-unit>
+			<trans-unit id="localconf_title">
+				<target>Privatsphäre Schutz</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

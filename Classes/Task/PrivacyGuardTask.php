@@ -408,7 +408,7 @@ class PrivacyGuardTask extends \TYPO3\CMS\Scheduler\Task\AbstractTask
      *
      * @return string
      */
-    protected function translate($key, $prefix = 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xml:')
+    protected function translate($key, $prefix = 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xlf:')
     {
         return $GLOBALS['LANG']->sL($prefix.$key);
     }

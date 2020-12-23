@@ -232,7 +232,7 @@ class PrivacyGuardAdditionalFieldProvider extends AbstractAdditionalFieldProvide
      *
      * @return string
      */
-    protected function translate($key, $prefix = 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xml:')
+    protected function translate($key, $prefix = 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xlf:')
     {
         return $this->languageService->sL($prefix.$key);
     }

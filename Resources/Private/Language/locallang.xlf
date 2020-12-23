@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-12-23T22:49:40Z">
+		<header/>
+		<body>
+			<trans-unit id="addfields_label_extension">
+				<source>Choosen extension:</source>
+			</trans-unit>
+			<trans-unit id="addfields_label_method">
+				<source>What to delete?</source>
+			</trans-unit>
+			<trans-unit id="addfields_label_time">
+				<source>Period to delete:</source>
+			</trans-unit>
+			<trans-unit id="addfields_method_anonymize_ip">
+				<source>Anonymize IP</source>
+			</trans-unit>
+			<trans-unit id="addfields_method_delete_all">
+				<source>Delete whole entry</source>
+			</trans-unit>
+			<trans-unit id="addfields_method_delete_ip">
+				<source>Delete IP</source>
+			</trans-unit>
+			<trans-unit id="addfields_notice_ext_not_installed">
+				<source>Please make sure extension '%s' is installed.</source>
+			</trans-unit>
+			<trans-unit id="addfields_time_all">
+				<source>All entries</source>
+			</trans-unit>
+			<trans-unit id="addfields_time_d">
+				<source>days</source>
+			</trans-unit>
+			<trans-unit id="addfields_time_h">
+				<source>hours</source>
+			</trans-unit>
+			<trans-unit id="addfields_time_m">
+				<source>months</source>
+			</trans-unit>
+			<trans-unit id="localconf_description">
+				<source>This task cleans your TYPO3 installation to improve the privacy of your customers.</source>
+			</trans-unit>
+			<trans-unit id="localconf_title">
+				<source>Privacy Guard</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

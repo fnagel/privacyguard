@@ -6,7 +6,7 @@ if (!defined('TYPO3_MODE')) {
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks']['FelixNagel\\PrivacyGuard\\Task\\PrivacyGuardTask'] = [
     'extension' => 'privacyguard',
-    'title' => 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xml:localconf_title',
-    'description' => 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xml:localconf_description',
+    'title' => 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xlf:localconf_title',
+    'description' => 'LLL:EXT:privacyguard/Resources/Private/Language/locallang.xlf:localconf_description',
     'additionalFields' => 'FelixNagel\\PrivacyGuard\\Task\\PrivacyGuardAdditionalFieldProvider',
 ];
